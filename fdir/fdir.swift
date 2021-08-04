@@ -37,11 +37,9 @@ struct fdir: ParsableCommand {
     
     /// Main function, starting point
     func run() throws {
-        print("fdir".green)
-        
         var fileNames = try readFilesInDirectory(includeHidden: includeAllFiles)
         let folderNames = try readFoldersInDirectory()
-
+        
         let descriptionLines = Description.read()
 
         func createDescriptionFile() {
@@ -62,6 +60,8 @@ struct fdir: ParsableCommand {
             
             return
         }
+        
+        showTotalsLine(folderNames: folderNames, fileNames: fileNames)
         
         printOutput(filesOrFolders: folderNames, descriptionLines: descriptionLines, ANSIColors: "<>".white.bold.onBlack)
         printOutput(filesOrFolders: fileNames, descriptionLines: descriptionLines, ANSIColors: "<>".gray.onBlack)
@@ -103,6 +103,13 @@ struct fdir: ParsableCommand {
         }
                 
         return fileNames
+    }
+    
+    // shows number of folders, files
+    func showTotalsLine(folderNames: [String], fileNames: [String]) {
+        print(String(repeating: " ", count: 80).green.onWhite + "\r", terminator:"")
+
+        print("fdir - [\(folderNames.count)] folders, [\(fileNames.count)] files".green.onWhite)
     }
 }
 
