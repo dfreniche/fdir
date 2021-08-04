@@ -63,7 +63,7 @@ struct fdir: ParsableCommand {
             return
         }
         
-        printOutput(filesOrFolders: folderNames, descriptionLines: descriptionLines, ANSIColors: "<>".white.onBlack)
+        printOutput(filesOrFolders: folderNames, descriptionLines: descriptionLines, ANSIColors: "<>".white.bold.onBlack)
         printOutput(filesOrFolders: fileNames, descriptionLines: descriptionLines, ANSIColors: "<>".gray.onBlack)
     }
     
