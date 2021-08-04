@@ -15,7 +15,7 @@ struct fdir: ParsableCommand {
     // --i --init option
     @Flag(name: [.customLong("init"), .customShort("i")],
           help: "Creates a new hidden \(Description.fileName) file")
-    var initFolder = false
+    var initDescriptionFile = false
     
     // --u --update option
     @Flag(name: [.customLong("update"), .customShort("u")],
@@ -50,7 +50,7 @@ struct fdir: ParsableCommand {
             print("descript.ion file created!")
         }
         
-        if initFolder {
+        if initDescriptionFile {
             let descriptionFileExists = try Folder(path: ".").containsFile(named: Description.fileName)
             if descriptionFileExists {
                 if TextDialog(question: "Overwrite file").showDialog() == .YES {
