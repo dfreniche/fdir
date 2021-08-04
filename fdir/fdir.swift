@@ -37,13 +37,16 @@ struct fdir: ParsableCommand {
     
     /// Main function, starting point
     func run() throws {
-        var fileNames = try readFilesInDirectory(includeHidden: includeAllFiles)
+        var fileNames = try readFilesInDirectory(includeHidden: includeAllFiles || initDescriptionFile || updateDescription)
         let folderNames = try readFoldersInDirectory()
         
         let descriptionLines = Description.read()
 
         func createDescriptionFile() {
-            fileNames.insert(".descript.ion - This file", at: 0)
+            if let index = fileNames.firstIndex(where: {$0.starts(with: Description.fileName)}) {
+                fileNames[index] = ".descript.ion - This file"
+            }
+            
             Description.save(content: (folderNames + fileNames).joined(separator: "\n"))
             print("descript.ion file created!")
         }
@@ -58,6 +61,13 @@ struct fdir: ParsableCommand {
                 createDescriptionFile()
             }
             
+            return
+        }
+        
+        if updateDescription {
+            if !Description.update(withFolders: folderNames, andFiles: fileNames) {
+                print("No \(Description.fileName) file found. Probably you'll need to init first with fdir -i")
+            }
             return
         }
         

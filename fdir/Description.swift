@@ -43,4 +43,32 @@ struct Description {
     
         return []
     }
+    
+    static func update(withFolders folders: [String], andFiles files: [String], file fileName: String = Description.fileName) -> Bool {
+        print(files)
+        func replaceExistingElements(_ elements: [String]) -> [String] {
+            var newElements: [String] = []
+
+            for element in elements {
+                if let index = description.firstIndex(where: { $0.starts(with: "\(element) -")}) {
+                    let folderComment = description[index].replacingOccurrences(of: "\(element) -", with: "")
+                    newElements.append("\(element) -\(folderComment)")
+                } else {
+                    newElements.append("\(element)")
+                }
+            }
+            
+            return newElements
+        }
+        
+        let description = read()
+        if description.isEmpty {
+            return false
+        }
+        
+        Description.save(content: (replaceExistingElements(folders) + replaceExistingElements((files))).joined(separator: "\n"))
+        print("descript.ion file updated!")
+        
+        return true
+    }
 }
