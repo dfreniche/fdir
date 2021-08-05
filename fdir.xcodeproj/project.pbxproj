@@ -32,6 +32,7 @@
 		990689BC269ED671002DB992 /* TextDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDialog.swift; sourceTree = "<group>"; };
 		99512A1626BBE766004C1C7C /* FileDirectoryUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDirectoryUtils.swift; sourceTree = "<group>"; };
 		99BE7FDE26BC2C8000FFE7FC /* DescriptionFile */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DescriptionFile; sourceTree = "<group>"; };
+		99BE7FE526BC40C200FFE7FC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		99D69145269D71F7008C1A99 /* fdir */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = fdir; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D69158269D73EB008C1A99 /* fdir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fdir.swift; sourceTree = "<group>"; };
 		99D6915C269D9AD7008C1A99 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 		99D6913C269D71F7008C1A99 = {
 			isa = PBXGroup;
 			children = (
+				99BE7FE526BC40C200FFE7FC /* LICENSE */,
 				9956AED526BC23D20025766F /* Packages */,
 				99D6915C269D9AD7008C1A99 /* README.md */,
 				99D69147269D71F7008C1A99 /* fdir */,

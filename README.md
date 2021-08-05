@@ -22,11 +22,3 @@ Then, open Xcode. In the scheme fdir there's a Build Post-Action copying the bin
 Build. 
 
 Done. 
-
-
-## TODO
-
-- [ ] add update function
-- [ ] list hidden files
-- [ ] add license
-- [ ] upload to Github
