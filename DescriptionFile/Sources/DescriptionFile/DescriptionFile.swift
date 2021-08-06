@@ -117,8 +117,8 @@ public struct DescriptionFile {
         return []
     }
     
-    public static func update(withFolders folders: [String], andFiles files: [String], file fileName: String = DescriptionFile.fileName) -> Bool {
-        print(files)
+    public static func update(description: [Line], withFolders folders: [String], andFiles files: [String], file fileName: String = DescriptionFile.fileName) -> Bool {
+
         func replaceExistingElements(_ elements: [String]) -> [String] {
             var newElements: [String] = []
 
@@ -137,7 +137,6 @@ public struct DescriptionFile {
             return newElements
         }
         
-        let description = readLines()
         if description.isEmpty {
             return false
         }

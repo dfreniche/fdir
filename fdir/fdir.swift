@@ -62,7 +62,7 @@ struct fdir: ParsableCommand {
         
         // we want to update an existing description file
         if updateDescription {
-            if !DescriptionFile.update(withFolders: folderNames, andFiles: fileNames) {
+            if !DescriptionFile.update(description: descriptionLines, withFolders: folderNames, andFiles: fileNames) {
                 print("No \(DescriptionFile.fileName) file found. Probably you'll need to init first with fdir -i")
             }
             return
