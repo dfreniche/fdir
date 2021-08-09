@@ -35,7 +35,7 @@ struct fdir: ParsableCommand {
 //          help: "Don't use ANSI colors")
 //    var noAnsiColors = false
     
-    /// Main function, starting point
+    /// Main function, starting point. Parsable command already adds a static main func that prints help
     func run() throws {
         // read current files & folders from directory. Some of these can or can't be in description file
         let fileNames = try readFilesInDirectory(includeHidden: includeAllFiles || initDescriptionFile || updateDescription)
