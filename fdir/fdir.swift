@@ -70,11 +70,11 @@ struct fdir: ParsableCommand {
         
         showTotalsLine(folderNames: folderNames, fileNames: fileNames)
         
-        printOutput(filesOrFolders: folderNames, descriptionLines: descriptionLines, ANSIColors: "<>".white.bold.onBlack, tab: longestNameLength)
+        printOutput(filesOrFolders: folderNames, descriptionLines: descriptionLines, ANSIColors: "<>".white.bold.onBlack, tab: longestNameLength, prefix: "[D] ")
         printOutput(filesOrFolders: fileNames, descriptionLines: descriptionLines, ANSIColors: "<>".gray.onBlack, tab: longestNameLength)
     }
     
-    func printOutput(filesOrFolders: [String], descriptionLines: [DescriptionFile.Line], ANSIColors: String = "", tab: Int = 0) {
+    func printOutput(filesOrFolders: [String], descriptionLines: [DescriptionFile.Line], ANSIColors: String = "", tab: Int = 0, prefix: String = "") {
         let output = filesOrFolders.map { (fileName: String) -> String  in
             guard let index = descriptionLines.firstIndex(where: { $0.name.starts(with: fileName)}) else { return fileName }
             
@@ -82,12 +82,14 @@ struct fdir: ParsableCommand {
             if line.comment.isEmpty {
                 return "\(line.name)"
             } else {
-                return "\(line.name) \(String(repeating: " ", count: tab - line.name.lengthOfBytes(using: .utf8) )) \(DescriptionFile.separator) \(line.comment)"
+                let negativePadding = prefix.lengthOfBytes(using: .utf8)
+                
+                return "\(line.name) \(String(repeating: " ", count: tab - negativePadding - line.name.lengthOfBytes(using: .utf8) )) \(DescriptionFile.separator) \(line.comment)"
             }
         }
         
         for line in output {
-            print(ANSIColors.replacingOccurrences(of: "<>", with: line))
+            print(ANSIColors.replacingOccurrences(of: "<>", with: "\(prefix)\(line)"))
         }
     }
     
