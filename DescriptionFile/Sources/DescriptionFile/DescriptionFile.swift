@@ -50,7 +50,7 @@ public struct DescriptionFile {
         var descriptionLines: [Line] = []
         
         for rawLine in rawLines {
-            let rawLineParts = rawLine.split(separator: separator)
+            let rawLineParts = rawLine.split(separator: separator, maxSplits: 1)
             if rawLineParts.isEmpty || rawLineParts.count == 1 {
                 descriptionLines.append(Line(name: rawLine, comment: ""))
             } else {

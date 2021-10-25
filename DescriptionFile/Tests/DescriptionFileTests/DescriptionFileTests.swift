@@ -34,4 +34,13 @@ class DescriptionTests: XCTestCase {
         let longest = DescriptionFile.longestName(inLines: result)
         XCTAssertEqual(longest, 8)
     }
+    
+    func test_Given_Some_Lines_With_CommentsAndTwoColons_When_GettingLongestFileName_Then_Returns_CorrectLines() throws {
+        let result = DescriptionFile.processLines(["filename:comment: is: : here:", "second: other", "colon: other : more colon" ])
+        
+        XCTAssertEqual(result[0].name, "filename")
+        XCTAssertEqual(result[0].comment, "comment: is: : here:")
+        XCTAssertEqual(result[2].name, "colon")
+        XCTAssertEqual(result[2].comment, "other : more colon")
+    }
 }
