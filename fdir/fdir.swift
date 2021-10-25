@@ -90,6 +90,8 @@ struct fdir: ParsableCommand {
     }
     
     func printOutput(filesOrFolders: [String], descriptionLines: [DescriptionFile.Line], ANSIColors: String = "", tab: Int = 0, prefix: String = "") {
+        let negativePadding = prefix.lengthOfBytes(using: .utf8)
+
         let output = filesOrFolders.map { (fileName: String) -> String  in
             guard let index = descriptionLines.firstIndex(where: { $0.name.starts(with: fileName)}) else { return fileName }
             
@@ -97,9 +99,9 @@ struct fdir: ParsableCommand {
             if line.comment.isEmpty {
                 return "\(line.name)"
             } else {
-                let negativePadding = prefix.lengthOfBytes(using: .utf8)
-                
-                return "\(line.name) \(String(repeating: " ", count: tab - negativePadding - line.name.lengthOfBytes(using: .utf8) )) \(DescriptionFile.separator) \(line.comment)"
+                let separatorLength = tab - negativePadding - line.name.lengthOfBytes(using: .utf8) + prefix.lengthOfBytes(using: .ascii)
+                let separator = String(repeating: " ", count: separatorLength >= 0 ? separatorLength : 0)
+                return "\(line.name)\( separator )\(DescriptionFile.separator) \(line.comment)"
             }
         }
         
