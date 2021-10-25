@@ -22,6 +22,11 @@ struct fdir: ParsableCommand {
           help: "Updates existing \(DescriptionFile.fileName) file with contents of folder")
     var updateDescription = false
     
+    // --e --edit option
+    @Flag(name: [.customLong("edit"), .customShort("e")],
+          help: "Opens existing \(DescriptionFile.fileName) file with VS Code")
+    var editDescription = false
+    
     // --a --all
     @Flag(name: [.customLong("all"), .customShort("a")],
           help: "Includes all files")
@@ -63,6 +68,16 @@ struct fdir: ParsableCommand {
         // we want to update an existing description file
         if updateDescription {
             if !DescriptionFile.update(description: descriptionLines, withFolders: folderNames, andFiles: fileNames) {
+                print("No \(DescriptionFile.fileName) file found. Probably you'll need to init first with fdir -i")
+            }
+            return
+        }
+        
+        if editDescription {
+            if DescriptionFile.alreadyExists() {
+               print("./\(DescriptionFile.fileName)")
+                Process.launch(command: "/usr/local/bin/code", arguments: ["\(DescriptionFile.fileName)"])
+            } else {
                 print("No \(DescriptionFile.fileName) file found. Probably you'll need to init first with fdir -i")
             }
             return

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		990689BD269ED671002DB992 /* TextDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990689BC269ED671002DB992 /* TextDialog.swift */; };
 		99512A1726BBE766004C1C7C /* FileDirectoryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99512A1626BBE766004C1C7C /* FileDirectoryUtils.swift */; };
+		998D9E9426E2128E00347F92 /* Process+RunCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998D9E9326E2128E00347F92 /* Process+RunCommand.swift */; };
 		99BE7FE226BC2D3300FFE7FC /* DescriptionFile in Frameworks */ = {isa = PBXBuildFile; productRef = 99BE7FE126BC2D3300FFE7FC /* DescriptionFile */; };
 		99D69151269D7269008C1A99 /* Files in Frameworks */ = {isa = PBXBuildFile; productRef = 99D69150269D7269008C1A99 /* Files */; };
 		99D69154269D7277008C1A99 /* ANSITerminal in Frameworks */ = {isa = PBXBuildFile; productRef = 99D69153269D7277008C1A99 /* ANSITerminal */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		990689BC269ED671002DB992 /* TextDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDialog.swift; sourceTree = "<group>"; };
 		99512A1626BBE766004C1C7C /* FileDirectoryUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDirectoryUtils.swift; sourceTree = "<group>"; };
+		998D9E9326E2128E00347F92 /* Process+RunCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Process+RunCommand.swift"; sourceTree = "<group>"; };
 		99BE7FDE26BC2C8000FFE7FC /* DescriptionFile */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DescriptionFile; sourceTree = "<group>"; };
 		99BE7FE526BC40C200FFE7FC /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		99D69145269D71F7008C1A99 /* fdir */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = fdir; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +85,7 @@
 		99D69147269D71F7008C1A99 /* fdir */ = {
 			isa = PBXGroup;
 			children = (
+				998D9E9326E2128E00347F92 /* Process+RunCommand.swift */,
 				99D69158269D73EB008C1A99 /* fdir.swift */,
 				990689BC269ED671002DB992 /* TextDialog.swift */,
 				99512A1626BBE766004C1C7C /* FileDirectoryUtils.swift */,
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99512A1726BBE766004C1C7C /* FileDirectoryUtils.swift in Sources */,
+				998D9E9426E2128E00347F92 /* Process+RunCommand.swift in Sources */,
 				99D69159269D73EB008C1A99 /* fdir.swift in Sources */,
 				990689BD269ED671002DB992 /* TextDialog.swift in Sources */,
 			);
