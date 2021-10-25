@@ -17,8 +17,8 @@ struct TextDialog {
     let question: String
     
     func readAnswer() -> Answers {
-        print(question + "(y/n)?")
-        
+        print(question + "(y/n)? ")
+
         // LOL this is a thowback to really, really bad code
         // I LOVE IT
         while (true) {
